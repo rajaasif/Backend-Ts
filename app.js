@@ -19,6 +19,7 @@ app.use(cookieParser());
 app.get('/', (req, res) => {
     res.send('My API Backend');
 });
+
 app.listen(5500, async()=>{
     console.log('Server is running on port',`http://localhost:${PORT}`);
     console.log(`Server is running on ${process.env.NODE_ENV} mode`);
