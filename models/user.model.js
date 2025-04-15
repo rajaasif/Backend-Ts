@@ -3,8 +3,9 @@ const userSchema = mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Name is Required'],
-        trim: true, minLenghth: [3, 'Name should be atleast 3 characters'],
-        maxLength: [50, 'Name should be less than 50 characters']
+        trim: true,
+        minLenghth: 3,
+        maxLength: 50,
     },
     email:
     {
@@ -12,8 +13,10 @@ const userSchema = mongoose.Schema({
         required: [true, 'Email is Required'],
         unique: true,
         lower: true,
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
-
+        match: [
+            /^([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+)\.([a-zA-Z0-9-.]+)$/,
+            'Please Enter a valid Email'
+        ]
     },
     password:
     {
@@ -23,7 +26,7 @@ const userSchema = mongoose.Schema({
         maxLength: [100, 'Password should be less than 100 characters'],
 
     }
-},{Timestamp:true});
+}, { Timestamp: true });
 
 const User = mongoose.model('User', userSchema);
 export default User;
