@@ -19,7 +19,7 @@ app.use(arcjetMiddleware);
 app.get('/', (req, res) => {
     res.send('My API Backend');
 });
-app.use('/api/v1/subscription', subscriptionRouter);
+app.use('/api/v1/subscriptions', subscriptionRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
 
